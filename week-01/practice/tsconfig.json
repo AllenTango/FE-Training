@@ -1,5 +1,4 @@
 {
-    "extends": "@tsconfig/node14/tsconfig.json",
     "compilerOptions": {
         "module": "commonjs",
         "lib": [
@@ -11,14 +10,10 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outDir": "./dist/",
+        "outDir": "./js/",
         "sourceMap": false
     },
     "include": [
         "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "**/*.spec.ts"
     ]
 }
