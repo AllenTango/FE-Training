@@ -1,5 +1,5 @@
 "use strict";
-function match(str) {
+function match01(str) {
     for (const c of str) {
         if (c === "c") {
             return true;
@@ -7,5 +7,5 @@ function match(str) {
     }
     return false;
 }
-console.log(match('abcd'));
-console.log(match('abde'));
+console.log(match01('abcd'));
+console.log(match01('abde'));

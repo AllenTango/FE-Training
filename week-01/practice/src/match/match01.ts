@@ -1,4 +1,4 @@
-function match(str: string): boolean {
+function match01(str: string): boolean {
     for (const c of str) {
         if (c === "c") {
             return true
@@ -7,5 +7,5 @@ function match(str: string): boolean {
     return false
 }
 
-console.log(match('abcd'));
-console.log(match('abde'));
+console.log(match01('abcd'));
+console.log(match01('abde'));

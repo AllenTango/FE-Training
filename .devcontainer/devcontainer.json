@@ -15,6 +15,9 @@
         "wix.vscode-import-cost",
         "jpoissonnier.vscode-styled-components"
     ],
+    "runArgs": [
+        "--network=host" // 与主机网络共享
+    ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [
     //     3001
@@ -33,5 +36,5 @@
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "yarn global add typescript",
     // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": ""
+    // "remoteUser": ""
 }
