@@ -51,10 +51,11 @@ class Request {
         })
     }
 
+    // 请求头以及toString 方法格式不对时，只会得到400 Bad Request
     toString() {
-        return `${this.method} ${this.path} HTTP/1.1\r
-        ${Object.keys(this.headers).map(key => `${key}: ${this.headers[key]}`).join("\r\n")}\r\r
-        ${this.bodyText}`
+        return `${this.method} ${this.path} HTTP/1.1\r\n${Object.keys(this.headers)
+            .map((key) => `${key}: ${this.headers[key]}`)
+            .join("\r\n")}\r\n\r\n${this.bodyText}`
     }
 }
 
@@ -202,12 +203,13 @@ class TrunkedBodyParser {
 void async function() {
     let request = new Request({
         method: "POST",
-        host: "localhost",
-        // host: "127.0.0.1",
+        // host: "localhost",
+        host: "127.0.0.1",
         port: "8088",
         path: "/",
         headers: {
             ["X-Client"]: "customed",
+            ["Content-Type"]: "application/json"
         },
         body: {
             name: "AllenTango"
