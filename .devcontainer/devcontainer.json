@@ -7,14 +7,15 @@
     "settings": {},
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-        "dbaeumer.vscode-eslint",
-        "dsznajder.es7-react-js-snippets",
-        "hookyqr.beautify",
-        "esbenp.prettier-vscode",
-        "oderwat.indent-rainbow",
-        "wix.vscode-import-cost",
-        "jpoissonnier.vscode-styled-components"
-    ],
+		"dbaeumer.vscode-eslint",
+		"dsznajder.es7-react-js-snippets",
+		"hookyqr.beautify",
+		"esbenp.prettier-vscode",
+		"oderwat.indent-rainbow",
+		"wix.vscode-import-cost",
+		"jpoissonnier.vscode-styled-components",
+		"formulahendry.code-runner"
+	],
     "runArgs": [
         "--network=host" // 与主机网络共享
     ],

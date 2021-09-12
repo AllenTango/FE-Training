@@ -1,55 +1,42 @@
 "use strict";
 function match06(str) {
-    let state = start;
-    for (const c of str) {
-        state = state(c);
-    }
-    return state === end;
+  let state = start;
+  for (const c of str) {
+    state = state(c);
+  }
+  return state === end;
 }
 function start(c) {
-    if (c === "a")
-        return foundA;
-    else
-        return start;
+  if (c === "a") return foundA;
+  else return start;
 }
 function end(c) {
-    return end;
+  return end;
 }
 function foundA(c) {
-    if (c === "b")
-        return foundB;
-    else
-        return start(c);
+  if (c === "b") return foundB;
+  else return start(c);
 }
 function foundB(c) {
-    if (c === "a")
-        return foundA2;
-    else
-        return start(c);
+  if (c === "a") return foundA2;
+  else return start(c);
 }
 function foundA2(c) {
-    if (c === "b")
-        return foundB2;
-    else
-        return start(c);
+  if (c === "b") return foundB2;
+  else return start(c);
 }
 function foundB2(c) {
-    if (c === "a")
-        return foundA3;
-    else
-        return start(c);
+  if (c === "a") return foundA3;
+  else return start(c);
 }
 function foundA3(c) {
-    if (c === "b")
-        return foundB3;
-    else
-        return start(c);
+  if (c === "b") return foundB3;
+  else return start(c);
 }
 function foundB3(c) {
-    if (c === "x")
-        return end;
-    else
-        return foundB(c);
+  if (c === "x") return end;
+  else return foundB(c);
 }
 console.log(match06("abyababcabx"));
 console.log(match06("abyabababx"));
+console.log(match06("abyababababx")); // false !== true
