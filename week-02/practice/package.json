@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "css": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/css": "0.0.33"
+  }
+}

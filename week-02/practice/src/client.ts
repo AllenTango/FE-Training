@@ -40,6 +40,7 @@ class Request {
             connection.on("data", (data) => {
                 console.log(data.toString());
                 parser.receive(data.toString());
+                console.log(parser.isFinished); // isFinished 有问题
                 if (parser.isFinished) {
                     resolve(parser.response);
                     connection.end();
@@ -144,7 +145,7 @@ class ResponseParser {
                 this.current = this.WAITING_BODY;
             }
         } else if (this.current === this.WAITING_BODY) {
-            console.log(char)
+            // console.log(char)
             this.bodyParser.receiveChar(char);
         }
     }
@@ -222,4 +223,5 @@ void async function() {
 
     // 解析HTML
     let dom = parser.parseHTML(response.body);
+    console.log(dom);
 }();

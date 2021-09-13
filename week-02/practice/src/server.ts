@@ -17,7 +17,7 @@ http.createServer((request, response) => {
     console.log("request ...");
     console.log(request.headers);
     response.setHeader("Content-Type", "text/html");
-    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.writeHead(200, {"Content-Type": "text/plain"}); // 以文本方式传输
     response.end(`<html lang="zh">
 
     <head>

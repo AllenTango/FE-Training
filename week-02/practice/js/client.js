@@ -47,6 +47,7 @@ class Request {
             connection.on("data", (data) => {
                 console.log(data.toString());
                 parser.receive(data.toString());
+                console.log(parser.isFinished);
                 if (parser.isFinished) {
                     resolve(parser.response);
                     connection.end();
@@ -153,7 +154,6 @@ class ResponseParser {
             }
         }
         else if (this.current === this.WAITING_BODY) {
-            console.log(char);
             this.bodyParser.receiveChar(char);
         }
     }
@@ -227,5 +227,6 @@ void function () {
         let response = yield request.send();
         console.log(response);
         let dom = parser.parseHTML(response.body);
+        console.log(dom);
     });
 }();
