@@ -9,8 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const images = require("images");
 const net = require("net");
 const parser = require("./parser");
+const render_1 = require("./render");
 class Request {
     constructor(options) {
         this.method = options.method || "GET";
@@ -176,14 +178,14 @@ class TrunkedBodyParser {
                 if (this.length === 0) {
                     this.isFinished = true;
                 }
-                this.current = this.WAITING_NEW_LINE_END;
+                this.current = this.WAITING_LENGTH_LINE_END;
             }
             else {
                 this.length *= 16;
                 this.length += parseInt(char, 16);
             }
         }
-        else if (this.current === this.WAITING_NEW_LINE_END) {
+        else if (this.current === this.WAITING_LENGTH_LINE_END) {
             if (char === "\n") {
                 this.current = this.READING_TRUNK;
             }
@@ -227,6 +229,8 @@ void function () {
         let response = yield request.send();
         console.log(response);
         let dom = parser.parseHTML(response.body);
-        console.log(dom);
+        let viewport = images(800, 600);
+        (0, render_1.default)(viewport, dom);
+        viewport.save('result.jpg');
     });
 }();

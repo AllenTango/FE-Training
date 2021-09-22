@@ -1,5 +1,8 @@
+import images = require("images");
 import * as net from "net";
 import * as parser from "./parser";
+import render from "./render";
+
 
 class Request {
     constructor(options) {
@@ -171,12 +174,12 @@ class TrunkedBodyParser {
                 if (this.length === 0) {
                     this.isFinished = true;
                 }
-                this.current = this.WAITING_NEW_LINE_END;
+                this.current = this.WAITING_LENGTH_LINE_END;
             } else {
                 this.length *= 16;
                 this.length += parseInt(char, 16);
             }
-        } else if (this.current === this.WAITING_NEW_LINE_END) {
+        } else if (this.current === this.WAITING_LENGTH_LINE_END) {
             if (char === "\n") {
                 this.current = this.READING_TRUNK;
             }
@@ -223,5 +226,7 @@ void async function() {
 
     // 解析HTML
     let dom = parser.parseHTML(response.body);
-    console.log(dom);
+    let viewport = images(800, 600);
+    render(viewport, dom)
+    viewport.save('result.jpg')
 }();

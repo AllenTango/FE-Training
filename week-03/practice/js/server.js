@@ -14,22 +14,31 @@ http.createServer((request, response) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>👋你好呀！</title>
         <style>
-            div p#greet {
-                font-size: larger;
-                background-color: bisque;
-            }
-    
-            div p {
-                border-radius: 5px;
-                border: 2px solid dashed;
-            }
+        #container {
+            width: 500px;
+            height: 500px;
+            display: flex;
+            background: rgb(255, 255, 255);
+        }
+        #container #greet {
+            width: 150px;
+            height: 200px;
+            font-size: larger;
+            background-color: bisque;
+        }
+
+        #container .c1 {
+            flex: 1;
+            border-radius: 5px;
+            border: 2px solid dashed;
+        }
         </style>
     </head>
     
     <body>
-        <div>
-            <p id="greet">你好</p>
-            <p>你好呀！</p>
+        <div id="container">
+            <div id="greet">你好</div>
+            <div class="c1">你好呀！</div>
         </div>
     </body>
     
